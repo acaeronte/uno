@@ -1,0 +1,100 @@
+
+* { box-sizing: border-box;}
+
+/* ************************************************************************************************ */
+/* Estructura de la maqueta y elementos genéricos */ 
+/* ************************************************************************************************ */
+
+body{
+     
+    /* Definimos el contenedor principal como un grid */ 
+     display: grid;
+    
+     /* Definimos la separación entre cada una de las zonas */
+     grid-gap: 5px;
+    
+     /* Definimos el número de filas y columnas que conforman nuestra maqueta*/
+     grid-template-columns: 18% 20% 18% 20% 23%;
+     grid-template-rows: 50px auto auto;
+     
+	   /* Definimos mediante areas nuestra maqueta*/
+     grid-template-areas:
+        "header header header header header" 
+        "imagen imagen video video video"
+        "animacion_css animacion_css animacion_css animacion_css animacion_css";
+    	  justify-items:stretch;
+    }
+
+/* Asignamos cada una de las areas definidas en el grid a un elemento del HTML */   
+header{grid-area:header;}
+.z_imagen{grid-area:imagen;}
+.z_video{grid-area:video;}
+.z_animacion_css{grid-area:animacion_css;}
+footer{grid-area:footer;}
+
+
+/* Asignamos estilo a la cabecera */   
+header {
+	border:2px solid black;
+    margin:2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	}
+
+/* Asignamos estilos a cada una de las zonas definidas en la maqueta */   
+  .zona{ 
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    border:2px solid black;
+    margin:2px;
+}
+
+/* Estilos para los encabezados h2 y h3 y los botones*/
+h2{
+    text-align: center;
+    color:red;
+    margin:0px;
+    margin-bottom:5px;
+    margin-top: 5px;
+}
+h3{
+    text-align: center;
+    color:blue;
+    margin:0px;
+    margin-bottom:5px;
+    margin-top: 5px;
+    font-size: 14px;
+}
+button{
+    background-color: #FFF6BF;
+}
+
+
+/* ************************************************************************************************ */
+/* ZONA RELACIONADO CON LA IMAGEN RESPONSIVA */
+/* ************************************************************************************************ */
+.zona_img_responsiva{
+  width:35vw;
+}
+
+/* ************************************************************************************************ */
+/* ZONA RELACIONADO CON EL VIDEO */
+/* ************************************************************************************************ */
+.botonera>button{
+    width:200px;
+    margin:10px;
+}
+
+
+
+
+/* ************************************************************************************************ */
+/* ************************************************************************************************ */
+/* ************************************************************************************************ */
+/* ************************************************************************************************ */
+/* DESARROLLO A REALIZAR POR EL ALUMNADO */
+/* ************************************************************************************************ */

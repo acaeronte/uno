@@ -1,0 +1,387 @@
+/* --2-- */
+/* definir una fuente para el texto del header */
+@font-face {
+    /*alias para usar la fuente*/
+    font-family: 'nombre';
+    src: url("../fuentes/Ubuntu-Regular.ttf");
+    src: url("../fuentes/fuente_examen.ttf");
+}
+
+@font-face {
+    /*fuente segura por si falla la primera definida*/
+    font-family: 'sans-serif';
+    src: local("sans-serif");
+}
+
+
+:root {
+    /* crear variable a usar como propiedad 'fuente' en el header o la siguiente */
+    --fuente_encabezado1: 'nombre',Arial;
+}
+
+
+/* --1-- */
+body {
+    
+    /* la altura se ajusta al contenido */
+    height: min-content;
+    /* color de fondo */
+    background-color: aqua;
+    /* estructura de los componentes hijos */
+    display: grid;
+    /* hay que darle altura, para que los % funcionen */
+    /* height: 100%; */
+    /* numero de filas */
+    /* grid-template-rows: auto auto auto auto;   el % no se ve. */  
+    grid-template-rows: 10% 100vw 10%;
+    /* numero de columnas */
+    grid-template-columns: 60% 40%;
+    /* --2-- */
+}
+
+header {
+    /* la altura se ajusta al contenido */
+    height: fit-content;
+    /* borde que tiene el contenedor */
+    border: 1px black solid;
+    /* distancia hacia dentro del contenedor */
+    /* padding: 2%; */
+    /* color de fondo */
+    background-color: pink;
+    /* donde comienda en filas */
+    grid-row-start: 1;
+    /* donde termina en filas */
+    grid-row-end: 2;
+    /* comienzo / final INCLUIDAS de columnas */
+    grid-column: 1 / 2;
+    /* distancia relativa en altura, vw = anchura 
+    medidas relativas: em,ex,ch,rem,lh,vmix,vmax
+    */
+    margin-bottom: 1vh;
+    /* --2-- */
+    /* alinear horizontal y vertical texto */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* definir una fuente para el texto del header */
+    font-family: var(--fuente_encabezado1);
+}
+
+nav {
+    /* la altura se ajusta al contenido */
+    /*height: fit-content;*/
+    border: 1px black solid;
+    background-color: rgb(138, 96, 32);
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column: 2 / 3;
+    margin-bottom: 1vh;
+    margin-left: 1%;
+    /* --3-- */
+
+}
+
+main {
+
+    border: 1px black solid;
+    background-color: rgb(148, 4, 177);
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    margin-bottom: 1vh;
+    /*margin-right: 1vh;*/
+    /* --4--main*/
+    /* ordenar libros vertical y horizontal */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+aside {
+
+    border: 1px black solid;
+    background-color: rgb(243, 255, 79);
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    margin-bottom: 1vh;
+    margin-left: 1%;
+    /* --5--aside,tabla */
+    display: flex;
+    /* poner los item hijos centrados en direccion columna */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+footer {
+    /* la altura se ajusta al contenido */
+    height: fit-content;
+    border: 1px black solid;
+    background-color: rgb(246, 247, 240);
+    grid-row-start: 4;
+    grid-row-end: 5;
+    grid-column: 1 / 3;
+    margin-bottom: 1vh;
+    /*--6--footer*/
+    /* alinear horizontal y vertical texto */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+/* --2-- */
+/* texto del encabezado */
+h1 {
+    /* separacion entre palabras */
+    word-spacing: 10px;
+    /* sombra del texto  
+    offset-x | offset-y | difuminacion sombra | color */
+    text-shadow: -5px -5px 4px black;
+}
+
+.nom {
+    /* color del texto, de la clase nom */
+    color: aqua;
+}
+
+.ape {
+    /* color del texto, de la clase ape */
+    color: green;
+}
+
+/* --3--nav */
+#navegacion {
+    /* eliminar el icono de la lista */
+    list-style: none;
+    /* que aparezcan centrado los elementos */
+    display: flex;
+    justify-content: center;
+    /* 1 opcion, otra forma de crear espacio entre los elementos */
+    /* justify-content: space-evenly; */
+    /* align-items: center; */
+
+}
+
+li {
+    /*2 opcion, genera espacio a la derecha de cada elemento del nav */
+    padding-right: 10vh;
+    
+}
+
+a {
+    /*que los estilos tipicos de un enlace no se apliquen*/
+    text-decoration: none;
+    /*cambiar el color del texto del enlace*/
+    color: black;
+}
+
+
+
+li:last-child {
+    color: red;
+}
+
+
+/* --4--main*/
+.libro {
+    background-color: brown;
+    /* poner los bordes redondos */
+    border-radius: 12%;
+    display: flex;
+    /* poner los item hijos centrados en direccion columna */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* margen entre los libros que se encuentran dentro del main */
+    margin: 1vh;
+    padding: 1vh;
+
+
+}
+
+/* poner borde a los libros impares */
+.libro:nth-child(odd) {
+    /*odd=impares*/
+    border: 5px solid green;
+}
+
+/* poner borde a los libros pares */
+.libro:nth-child(even) {
+    /*even=pares*/
+    border: 5px solid blue;
+}
+
+.libro img {
+    /* medidas imagenes de cada libro */
+    height: 10vh;
+}
+
+.titulo {
+    /* poner el titulo de los libros en el centro */
+    display: flex;
+    /* poner los item hijos centrados en direccion columna */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.libro p {
+    /* Número de columnas */
+    column-count: 2;
+    /* Espacio entre columnas */
+    column-gap: 20px;
+    /* Línea separadora entre columnas */
+    column-rule: 1px solid #999;
+
+}
+
+/* --5--aside*/
+
+td,
+th {
+    border: 1px solid black;
+}
+
+.fila {
+    text-align: center;
+}
+
+/*--6--footer*/
+/* cambiar el color cuando se pasa el raton por encima */
+h3:hover{
+    color: darkgreen;
+}
+
+
+/*--7--mediaQuery*/
+/*media query para dispositivos con menos de 500px*/
+@media screen and (max-width: 499px) {
+
+    body {
+        /*para que aparezcan los hijos directos en una sola columna*/
+        display: flex;flex-direction: column;
+        /*background-color: azure;*/
+    }
+    /*ocultar zona entera*/
+    header{
+        display: none;
+    }
+    /*ocultar zona entera*/
+    aside{
+        display: none;
+    }
+
+    main{
+        /*para que aparezcan los hijos directos en una sola columna*/
+        display: flex; flex-direction: column;
+
+    }
+
+    footer{
+        /*si se quiere cambiar el orden en el que aparece el elemento*/
+        /*order:-1;*/
+    }
+
+
+
+    /*Zona de encabezado: Debe aparecer solo logotipo y los iconos o imágenes deben aparecer en dos filas de dos elementos cada una.*/
+    /*nav{
+        background-color: #FFF6EB ;
+    }
+    nav ul{
+        display: none;
+    }
+    .menu{
+        border-top: none;
+        width: 40%;
+        text-align: center;
+    }
+    .menu:hover{
+        width: 40%;
+    }
+    label{
+        box-sizing: border-box;
+        display: inline-block;
+        border: 1px solid black;
+        border-radius: 5px;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        font-weight: bold;
+        text-align: center;
+        user-select: none;
+    }
+    input:checked ~ ul{
+        display:block;
+    }
+    input{
+        display: none;
+    }
+
+    #logo{
+        height: 50px;
+    }
+*/
+    /*Ocultar nombre*/
+   /* #nombre{
+        display:none;
+    }
+    #iconos{
+        display: flex;
+        align-items:center;
+    }
+    #familia{
+        grid-template-columns: auto;
+    }
+
+    #top{
+        grid-template-columns: auto;
+    }
+
+    #sub1{
+        grid-template-rows: auto auto auto;
+    }
+    #tabla{
+        display:none;
+    }
+
+    #sub2{
+        grid-template-columns: auto auto;
+
+    }
+    .prod:nth-child(1),
+    .prod:nth-child(2),
+    .prod:nth-child(3),
+    .prod:nth-child(5) {
+        display:none;
+    }
+    .img_sub2 img{
+        width: auto;
+    }
+
+    #texto{
+        grid-template-columns: auto;
+        gap: 3px;
+    }
+*/
+}
+
+
+/* 1 estructura */
+/* 2 encabezado, header*/
+/* 3 navegacion, nav*/
+/* 4 contenido, main*/
+/* 5 aside, tabla*/
+/* 6 footer*/
+
+/* 7 media-query */
+/* 8 */
+/* 9 */
