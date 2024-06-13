@@ -93,10 +93,16 @@ main {
     /*margin-right: 1vh;*/
     /* --4--main*/
     /* ordenar libros vertical y horizontal */
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
+
+
+    display: grid;
+    /* hay que darle altura, para que los % funcionen */
+    /* height: 100%; */
+    /* numero de filas */
+    /* grid-template-rows: auto auto auto auto;   el % no se ve. */
+    grid-template-rows: 100%;
+    /* numero de columnas */
+    grid-template-columns: 50% 50%;
 
 }
 
@@ -133,6 +139,25 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+
+section {
+    border: 1px black solid;
+    margin: 1%;
+    display: flex;
+    /* poner los item hijos centrados en direccion columna */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#uno{
+
+    grid-column: 1 / 2;
+}
+#dos{
+    grid-column: 2 / 3;
 }
 
 
