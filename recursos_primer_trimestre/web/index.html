@@ -11,60 +11,67 @@
 
 <body>
     <header>
-        <h1><span class="nom">Antonio</span> <span class="ape">Cobos Cabello</span></h1>
+        <div id="logo">
+            <img id="logo_img" src="../imagenes/logo.png" title="Logo" alt="Logo">
+        </div>
+        <div id="nombre">
+            <p>Antonio Cobos Cabello</p>
+        </div>
+
     </header>
     <nav>
         <ul id="navegacion">
-            <li accesskey="u" tabindex="1"><a href="#contenidoMain">Catalogo</a> </li><!--accesskey: shift + alt + letra-->
-            <li accesskey="o" tabindex="2">Ventas</li>
-            <li accesskey="n" tabindex="3">Novedades</li>
+            <li accesskey="u" tabindex="1"><a href="#contenidoMain">Ciclos</a> </li><!--accesskey: shift + alt + letra-->
+            <li accesskey="o" tabindex="2">Profesorado</li>
+            <li accesskey="n" tabindex="3">Secretaria</li>
         </ul>
     </nav>
     <main id="contenidoMain">
         <section id="uno">
-            <div class="libro">
-                <img src="../imagenes/libro.png" alt="titulo del primer libro">
-                <p class="titulo">libro 1</p>
-                <p class="texto">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni reprehenderit asperiores, laboriosam quod eaque blanditiis ullam similique quasi voluptatibus accusamus mollitia cum tempora libero commodi eius voluptatem temporibus sapiente optio?</p>
+            <h2>Ciclos Formativos</h2>
+            <div class="ciclo">
+                <p class="titulo">DAW</p>
+                <p class="texto">Desarrollo de aplicaciones web</p>
             </div>
-
-            <div class="libro">
-                <img src="../imagenes/libro.png" alt="titulo del segundo libro">
-                <p class="titulo">libro 2</p>
-                <p class="texto">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni reprehenderit asperiores, laboriosam quod eaque blanditiis ullam similique quasi voluptatibus accusamus mollitia cum tempora libero commodi eius voluptatem temporibus sapiente optio?</p>
+            <div class="ciclo">
+                <p class="titulo">DAM</p>
+                <p class="texto">Desarrollo de aplicaciones multiplataforma</p>
             </div>
-            <div class="libro">
-                <img src="../imagenes/libro.png" alt="titulo del tercer libro">
-                <p class="titulo">libro 3</p>
-                <p class="texto">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni reprehenderit asperiores, laboriosam quod eaque blanditiis ullam similique quasi voluptatibus accusamus mollitia cum tempora libero commodi eius voluptatem temporibus sapiente optio?</p>
+            <div class="ciclo">
+                <p class="titulo">ASIR</p>
+                <p class="texto">ADMINISTRACION DE SISTEMAS INFORMATICOS Y REDES</p>
             </div>
         </section>
         <section id="dos">
-            <h2>Tabla de libros</h2>
+            <h2>Administracion de Sistemas Informaticos y Redes</h2>
             <table id="tabla">
-                <caption class="cap">Listado de libros, número de ejemplares y número total</caption>
+                <caption class="cap">Listado de módulos del ciclo ASIR y su número de horas</caption>
                 <thead id="cabecera_tabla">
                 <tr class="cab">
-                    <th id="tituloLibro">Titulo</th>
-                    <th id="ejemplares">Número de ejemplares</th>
+                    <th id="tituloLibro">Módulos</th>
+                    <th id="ejemplares">Número de horas</th>
                 </tr>
                 </thead>
                 <tbody class="tabla_elemento"><!-- Tendrá 7 filas-->
                 <tr class="fila"><!-- En estilos, fila tendra display grid con tres columnas-->
-                    <td headers="tituloLibro">libro 1</td>
-                    <td headers="ejemplares">15</td>
+                    <td headers="tituloLibro">FOL</td>
+                    <td headers="ejemplares">3</td>
                 </tr>
                 <tr class="fila"><!--2-->
-                    <td headers="tituloLibro">libro 2</td>
-                    <td headers="ejemplares">10</td>
+                    <td headers="tituloLibro">PH</td>
+                    <td headers="ejemplares">3</td>
                 </tr>
                 <tr class="fila"><!--3-->
-                    <td headers="tituloLibro">libro 3</td>
-                    <td headers="ejemplares">5</td>
+                    <td headers="tituloLibro">ISO</td>
+                    <td headers="ejemplares">8</td>
+                </tr>
+                <tr class="fila"><!--3-->
+                    <td headers="tituloLibro">ASO</td>
+                    <td headers="ejemplares">6</td>
                 </tr>
                 <tr class="fila"><!--4-->
-                    <th headers="tituloLibro">Total</th>
-                    <td headers="ejemplares">30</td>
+                    <th headers="tituloLibro">Total Horas</th>
+                    <td headers="ejemplares">20</td>
                 </tr>
                 </tbody>
             </table>
@@ -73,11 +80,17 @@
 
     </main>
     <aside>
-
+        <h1>Módulos Profesionales</h1>
+        <h2>Primero</h2>
+        <p>Formación y orientación laboral</p>
+        <p>Fundamentos de hardware</p>
+        <h2>Segundo</h2>
+        <p>Implantación de sistemas operativos</p>
+        <p>Administracion de sistemas operativos</p>
     </aside>
 
     <footer>
-        <h3>I.E.S Trassierra</h3>
+        <span>Diseño de Interfaces Web </span><p> I.E.S Trassierra</p>
     </footer>
 
 </body>

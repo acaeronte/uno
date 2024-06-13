@@ -2,21 +2,17 @@
 /* definir una fuente para el texto del header */
 @font-face {
     /*alias para usar la fuente*/
-    font-family: 'nombre';
-    src: url("../fuentes/Ubuntu-Regular.ttf");
+    font-family: 'nombre', Arial;
     src: url("../fuentes/fuente_examen.ttf");
 }
 
-@font-face {
-    /*fuente segura por si falla la primera definida*/
-    font-family: 'sans-serif';
-    src: local("sans-serif");
-}
 
 
 :root {
     /* crear variable a usar como propiedad 'fuente' en el header o la siguiente */
     --fuente_encabezado1: 'nombre',Arial;
+    --colorModulo: #9a2f2f;
+    --colorCentro:purple;
 }
 
 
@@ -58,7 +54,9 @@ header {
     medidas relativas: em,ex,ch,rem,lh,vmix,vmax
     */
     margin-bottom: 1vh;
-    /* --2-- */
+    /*Tendrá 2 columnas, 3 contenedores*/
+    grid-template-columns: 50% 50%;
+
     /* alinear horizontal y vertical texto */
     display: flex;
     justify-content: center;
@@ -82,7 +80,6 @@ nav {
 }
 
 main {
-
     border: 1px black solid;
     background-color: rgb(148, 4, 177);
     grid-row-start: 2;
@@ -90,19 +87,24 @@ main {
     grid-column-start: 1;
     grid-column-end: 2;
     margin-bottom: 1vh;
-    /*margin-right: 1vh;*/
-    /* --4--main*/
-    /* ordenar libros vertical y horizontal */
 
-
+    /* SE VE BIEN*/
     display: grid;
+    grid-template-rows: 100%;
+    grid-template-columns: 50% 50%;
+
+    /*REGULAR*/
+    /*display:flex;
+    justify-content:center;
+    align-items:center;
+*/
     /* hay que darle altura, para que los % funcionen */
     /* height: 100%; */
     /* numero de filas */
     /* grid-template-rows: auto auto auto auto;   el % no se ve. */
-    grid-template-rows: 100%;
+
     /* numero de columnas */
-    grid-template-columns: 50% 50%;
+
 
 }
 
@@ -116,12 +118,7 @@ aside {
     grid-column-end: 3;
     margin-bottom: 1vh;
     margin-left: 1%;
-    /* --5--aside,tabla */
-    display: flex;
-    /* poner los item hijos centrados en direccion columna */
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+
 
 }
 
@@ -139,6 +136,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family:var(--fuente_encabezado1);
 }
 
 
@@ -152,6 +150,14 @@ section {
     align-items: center;
 }
 
+footer span{
+    color: var(--colorModulo);
+}
+footer {
+    color: var(--colorCentro);
+}
+
+
 #uno{
 
     grid-column: 1 / 2;
@@ -160,35 +166,58 @@ section {
     grid-column: 2 / 3;
 }
 
+#logo{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    width: 50%;
+}
+#logo_img{
+    display: flex;
+    padding-top: 30px;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+#nombre{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    display: flex;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
 
 
 /* --2-- */
 /* texto del encabezado */
-h1 {
+/*h1 {
     /* separacion entre palabras */
-    word-spacing: 10px;
+/*    word-spacing: 10px;
     /* sombra del texto  
     offset-x | offset-y | difuminacion sombra | color */
-    text-shadow: -5px -5px 4px black;
-}
+   /* text-shadow: -5px -5px 4px black;
+}*/
 
-.nom {
-    /* color del texto, de la clase nom */
-    color: aqua;
-}
 
-.ape {
-    /* color del texto, de la clase ape */
-    color: green;
-}
 
 /* --3--nav */
 #navegacion {
     /* eliminar el icono de la lista */
     list-style: none;
-    /* que aparezcan centrado los elementos */
-    display: flex;
-    justify-content: center;
     /* 1 opcion, otra forma de crear espacio entre los elementos */
     /* justify-content: space-evenly; */
     /* align-items: center; */
@@ -210,13 +239,11 @@ a {
 
 
 
-li:last-child {
-    color: red;
-}
+
 
 
 /* --4--main*/
-.libro {
+.ciclo {
     background-color: brown;
     /* poner los bordes redondos */
     border-radius: 12%;
@@ -228,23 +255,13 @@ li:last-child {
     /* margen entre los libros que se encuentran dentro del main */
     margin: 1vh;
     padding: 1vh;
-
+    border: 1px solid black;
 
 }
 
-/* poner borde a los libros impares */
-.libro:nth-child(odd) {
-    /*odd=impares*/
-    border: 5px solid green;
-}
 
-/* poner borde a los libros pares */
-.libro:nth-child(even) {
-    /*even=pares*/
-    border: 5px solid blue;
-}
 
-.libro img {
+.ciclo img {
     /* medidas imagenes de cada libro */
     height: 10vh;
 }
@@ -258,14 +275,16 @@ li:last-child {
     align-items: center;
 }
 
-.libro p {
-    /* Número de columnas */
-    column-count: 2;
-    /* Espacio entre columnas */
-    column-gap: 20px;
-    /* Línea separadora entre columnas */
-    column-rule: 1px solid #999;
+.ciclo p {
+    text-transform: uppercase;
+}
 
+.ciclo:last-child {
+    background-color: red;
+}
+
+.titulo:hover{
+    color: darkgreen;
 }
 
 /* --5--aside*/
@@ -287,8 +306,8 @@ h3:hover{
 
 
 /*--7--mediaQuery*/
-/*media query para dispositivos con menos de 500px*/
-@media screen and (max-width: 499px) {
+/*media query para dispositivos con menos de 600px*/
+@media screen and (max-width: 599px) {
 
     body {
         /*para que aparezcan los hijos directos en una sola columna*/
@@ -297,7 +316,12 @@ h3:hover{
     }
     /*ocultar zona entera*/
     header{
-        display: none;
+        /*display: none;*/
+        order:-1;
+    }
+    nav{
+        order:0;
+        display: flex; flex-direction: column;
     }
     /*ocultar zona entera*/
     aside{
@@ -305,6 +329,7 @@ h3:hover{
     }
 
     main{
+        order:1;
         /*para que aparezcan los hijos directos en una sola columna*/
         display: flex; flex-direction: column;
 
@@ -312,10 +337,14 @@ h3:hover{
 
     footer{
         /*si se quiere cambiar el orden en el que aparece el elemento*/
-        /*order:-1;*/
+        order:2;
     }
 
 
+    #navegacion{
+        display: flex;
+        justify-content: center;
+    }
 
     /*Zona de encabezado: Debe aparecer solo logotipo y los iconos o imágenes deben aparecer en dos filas de dos elementos cada una.*/
     /*nav{
